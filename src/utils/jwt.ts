@@ -11,3 +11,7 @@ export function generateRefreshToken(payload: object) {
     expiresIn: "7d"
   });
 }
+
+export function verifyRefreshToken(token: string) {
+  return jwt.verify(token, process.env.JWT_REFRESH_SECRET!);
+}
