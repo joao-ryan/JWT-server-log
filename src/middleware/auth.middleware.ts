@@ -17,7 +17,7 @@ export const authMiddleware = (
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    throw new AppError("Unauthorized: No token provided", 401);
+    throw new AppError("Não autorizado: Token não fornecido", 401);
   }
 
   const token = authHeader.split(" ")[1];
@@ -27,6 +27,6 @@ export const authMiddleware = (
     req.user = payload;
     next();
   } catch (error) {
-    throw new AppError("Unauthorized: Invalid token", 401);
+    throw new AppError("Não autorizado: Token inválido ou expirado", 401);
   }
 };

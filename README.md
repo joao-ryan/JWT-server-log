@@ -1,90 +1,104 @@
-# Professional JWT Authentication API (Senior Level)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/icons/lock.svg" width="100" />
+  <h1>🔥 AUTH-MASTER-SENIOR 🔥</h1>
 
-A robust, production-ready JWT authentication API built with Node.js, Express, TypeScript, and PostgreSQL (NeonDB). This project follows clean architecture principles and senior-level security best practices.
+  <p>
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+    <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+  </p>
 
-## 🚀 Features
-
-- **JWT Authentication**: Secure access and refresh token implementation.
-- **Session Management**: Server-side session tracking with refresh token rotation.
-- **Robust Security**:
-  - Password hashing with `bcrypt`.
-  - Security headers with `helmet`.
-  - CORS configuration.
-  - Environment variable validation with `zod`.
-- **Global Error Handling**: Centralized middleware for consistent error responses.
-- **Data Validation**: Request body validation using `zod` schemas.
-- **Typescript**: Fully typed codebase for maximum maintainability.
-- **Database**: PostgreSQL integration with `pg` pooler, optimized for NeonDB.
-
-## 🛠️ Tech Stack
-
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Language**: TypeScript
-- **Database**: PostgreSQL (NeonDB)
-- **Validation**: Zod
-- **Security**: JWT, Bcrypt, Helmet, CORS
-
-## 📋 Prerequisites
-
-- Node.js (v18+)
-- PostgreSQL Database (NeonDB recommended)
-
-## ⚙️ Installation & Setup
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/joao-ryan/JWT-server-log.git
-   cd JWT-server-log
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Configure environment variables**:
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   DATABASE_URL=your_postgresql_connection_string
-   JWT_SECRET=your_access_token_secret
-   JWT_REFRESH_SECRET=your_refresh_token_secret
-   PORT=3000
-   ```
-
-4. **Run Database Migrations**:
-   Execute the SQL script found in `sql/schema.sql` on your PostgreSQL instance.
-
-## 🏃 Running the Application
-
-### Development Mode
-```bash
-npm run dev
-```
-
-### Production Build
-```bash
-npm run build
-npm start
-```
-
-## 🔌 API Endpoints
-
-### Authentication
-- `POST /auth/register`: Register a new user.
-- `POST /auth/login`: Authenticate and receive tokens.
-- `POST /auth/refresh`: Get a new access token using a refresh token.
-- `POST /auth/logout-all`: Invalidate all sessions for a user.
-
-## ☁️ Deployment on Render
-
-1. Create a new **Web Service** on Render.
-2. Connect your GitHub repository.
-3. Configure the following:
-   - **Environment**: `Node`
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm start`
-4. Add your `.env` variables in the **Environment** tab.
+  <p><b>A API de Autenticação JWT Definitiva - Segurança Nível Sênior para Aplicações de Alto Calibre.</b></p>
+</div>
 
 ---
-Developed with ❤️ by Joao Ryan.
+
+## 💎 Sobre o Projeto
+
+Este projeto é uma **Fortaleza Digital** construída para lidar com autenticação de forma profissional e escalável. Utilizando as melhores práticas do mercado, garantimos que cada byte de dado esteja protegido por criptografia de ponta e uma arquitetura impecável.
+
+> "Segurança não é um produto, é um processo."
+
+---
+
+## ⚡ Funcionalidades de Elite
+
+- 🔐 **JWT Avançado**: Controle total com *Access Tokens* e *Refresh Tokens*.
+- 🔄 **Refresh Token Rotation**: Segurança máxima contra ataques de repetição.
+- 🏢 **Multi-Session**: Gerencie sessões de forma centralizada e eficaz.
+- 🛡️ **Defesas Ativas**:
+  - `Bcrypt` com salts dinâmicos para senhas.
+  - `Helmet` para cabeçalhos de segurança HTTP.
+  - `CORS` configurado para produção.
+  - Validação rigorosa com `Zod`.
+- 🧩 **Arquitetura Sênior**: Camadas separadas (Controller, Service, Repository, DTO).
+- 🚦 **Global Error Handling**: Respostas de erro elegantes e padronizadas.
+
+---
+
+## 🛠️ Arsenal Tecnológico
+
+| Tecnologia | Função | Nível |
+| :--- | :--- | :--- |
+| **Zod** | Validação de Esquemas & Env | 🧙‍♂️ Sênior |
+| **NeonDB** | PostgreSQL na Nuvem (Serverless) | 🚀 Performance |
+| **Bcrypt** | Criptografia de Senhas | 🔒 Inquebrável |
+| **TypeScript** | Tipagem Estrita & Manutenibilidade | ⚔️ Pro |
+
+---
+
+## 🚀 Como Iniciar a Operação
+
+### 1. Preparação do Terreno
+```bash
+git clone https://github.com/joao-ryan/JWT-server-log.git
+cd JWT-server-log
+npm install
+```
+
+### 2. Configuração do Radar (.env)
+Crie o arquivo `.env` com as coordenadas corretas:
+```env
+DATABASE_URL=seu_link_do_neondb_aqui
+JWT_SECRET=super_segredo_mestre_123
+JWT_REFRESH_SECRET=outro_segredo_ultra_secreto_456
+PORT=3000
+```
+
+### 3. Ignição do Banco de Dados
+```bash
+# Executar migrações (Criação de tabelas)
+npm run migration:run
+
+# Popular com dados iniciais (Opcional)
+npm run seed:run
+```
+
+---
+
+## 🛰️ Pontos de Acesso (API)
+
+| Método | Rota | Descrição | Protegido |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/auth/register` | Recruta um novo usuário | ❌ |
+| `POST` | `/auth/login` | Acesso ao centro de comando | ❌ |
+| `POST` | `/auth/refresh` | Renovação de credenciais | ❌ |
+| `POST` | `/auth/logout-all` | Abortar todas as sessões | ❌ |
+
+---
+
+## ☁️ Deploy no Render (Pronto para Combate)
+
+Para implantar esta API no **Render**, siga estas diretrizes:
+
+1. **Build Command**: `npm install && npm run build`
+2. **Start Command**: `npm start`
+3. **Variáveis de Ambiente**: Configure todas as chaves do `.env` no painel do Render.
+
+---
+
+<div align="center">
+  <p>Desenvolvido com maestria por <b>Joao Ryan</b> 🚀</p>
+  <img src="https://img.shields.io/badge/Made%20with-Passion-ff69b4?style=flat-square" />
+</div>

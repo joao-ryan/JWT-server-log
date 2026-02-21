@@ -9,7 +9,7 @@ const error_middleware_1 = require("../../middleware/error.middleware");
 const registerService = async (email, password) => {
     const existingUser = await (0, user_repository_1.findUserByEmail)(email);
     if (existingUser)
-        throw new error_middleware_1.AppError("Email already in use", 409);
+        throw new error_middleware_1.AppError("E-mail já está em uso", 409);
     const hashed = await (0, hash_1.hashPassword)(password);
     return (0, user_repository_1.createUser)(email, hashed);
 };
@@ -17,10 +17,10 @@ exports.registerService = registerService;
 const loginService = async (email, password, userAgent, ip) => {
     const user = await (0, user_repository_1.findUserByEmail)(email);
     if (!user)
-        throw new error_middleware_1.AppError("Invalid email or password", 401);
+        throw new error_middleware_1.AppError("E-mail ou senha inválidos", 401);
     const valid = await (0, hash_1.comparePassword)(password, user.password);
     if (!valid)
-        throw new error_middleware_1.AppError("Invalid email or password", 401);
+        throw new error_middleware_1.AppError("E-mail ou senha inválidos", 401);
     const accessToken = (0, jwt_1.generateAccessToken)({ userId: user.id });
     const refreshToken = (0, jwt_1.generateRefreshToken)({ userId: user.id });
     const hashedRefresh = await (0, hash_1.hashToken)(refreshToken);
@@ -36,7 +36,7 @@ const refreshService = async (token) => {
         return { accessToken, refreshToken };
     }
     catch (error) {
-        throw new error_middleware_1.AppError("Invalid or expired refresh token", 401);
+        throw new error_middleware_1.AppError("Token de atualização inválido ou expirado", 401);
     }
 };
 exports.refreshService = refreshService;

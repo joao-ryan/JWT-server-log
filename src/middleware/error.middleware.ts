@@ -20,10 +20,10 @@ export const errorHandler = (
     });
   }
 
-  console.error("Unexpected Error:", err);
+  console.error("❌ Erro inesperado:", err);
 
   return res.status(500).json({
-    status: "error",
-    message: "Internal server error",
+    status: "erro",
+    message: "Ocorreu um erro interno no servidor",
   });
 };

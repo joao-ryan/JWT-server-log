@@ -56,7 +56,7 @@ export const logoutAll = async (req: Request, res: Response, next: NextFunction)
     if (!userId) throw new AppError("User ID is required", 400);
 
     await logoutAllService(userId);
-    res.json({ message: "Logged out from all devices" });
+    res.json({ message: "Desconectado de todos os dispositivos com sucesso!" });
   } catch (error) {
     next(error);
   }

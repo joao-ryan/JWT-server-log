@@ -10,7 +10,7 @@ const error_middleware_1 = require("./error.middleware");
 const authMiddleware = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        throw new error_middleware_1.AppError("Unauthorized: No token provided", 401);
+        throw new error_middleware_1.AppError("Não autorizado: Token não fornecido", 401);
     }
     const token = authHeader.split(" ")[1];
     try {
@@ -19,7 +19,7 @@ const authMiddleware = (req, res, next) => {
         next();
     }
     catch (error) {
-        throw new error_middleware_1.AppError("Unauthorized: Invalid token", 401);
+        throw new error_middleware_1.AppError("Não autorizado: Token inválido ou expirado", 401);
     }
 };
 exports.authMiddleware = authMiddleware;

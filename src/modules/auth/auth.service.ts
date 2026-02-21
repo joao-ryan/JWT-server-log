@@ -18,7 +18,7 @@ import { AppError } from "../../middleware/error.middleware";
 
 export const registerService = async (email: string, password: string) => {
   const existingUser = await findUserByEmail(email);
-  if (existingUser) throw new AppError("Email already in use", 409);
+  if (existingUser) throw new AppError("E-mail já está em uso", 409);
 
   const hashed = await hashPassword(password);
   return createUser(email, hashed);
@@ -31,10 +31,10 @@ export const loginService = async (
   ip?: string
 ) => {
   const user = await findUserByEmail(email);
-  if (!user) throw new AppError("Invalid email or password", 401);
+  if (!user) throw new AppError("E-mail ou senha inválidos", 401);
 
   const valid = await comparePassword(password, user.password);
-  if (!valid) throw new AppError("Invalid email or password", 401);
+  if (!valid) throw new AppError("E-mail ou senha inválidos", 401);
 
   const accessToken = generateAccessToken({ userId: user.id });
   const refreshToken = generateRefreshToken({ userId: user.id });
@@ -55,7 +55,7 @@ export const refreshService = async (token: string) => {
 
     return { accessToken, refreshToken };
   } catch (error) {
-    throw new AppError("Invalid or expired refresh token", 401);
+    throw new AppError("Token de atualização inválido ou expirado", 401);
   }
 };
 

@@ -7,11 +7,11 @@ async function runMigrations() {
   const schema = fs.readFileSync(schemaPath, "utf-8");
 
   try {
-    console.log("Running migrations...");
+    console.log("⚙️ Executando migrações...");
     await pool.query(schema);
-    console.log("Migrations completed successfully.");
+    console.log("✅ Migrações concluídas com sucesso!");
   } catch (error) {
-    console.error("Migration failed:", error);
+    console.error("❌ Falha na migração:", error);
     process.exit(1);
   } finally {
     await pool.end();

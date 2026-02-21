@@ -3,10 +3,10 @@ import { hashPassword } from "../utils/hash";
 
 async function seed() {
   try {
-    console.log("Seeding database...");
+    console.log("🌱 Semeando o banco de dados...");
 
-    const email = "admin@example.com";
-    const password = "admin_password_123";
+    const email = "admin@exemplo.com";
+    const password = "admin_senha_123";
     const hashedPassword = await hashPassword(password);
 
     await pool.query(
@@ -14,10 +14,10 @@ async function seed() {
       [email, hashedPassword]
     );
 
-    console.log("Seeding completed successfully.");
-    console.log(`Test user created: ${email} / ${password}`);
+    console.log("✨ Seeding concluído com sucesso!");
+    console.log(`👤 Usuário de teste criado: ${email} / ${password}`);
   } catch (error) {
-    console.error("Seeding failed:", error);
+    console.error("❌ Falha no seeding:", error);
     process.exit(1);
   } finally {
     await pool.end();

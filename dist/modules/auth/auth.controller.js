@@ -47,7 +47,7 @@ const logoutAll = async (req, res, next) => {
         if (!userId)
             throw new error_middleware_1.AppError("User ID is required", 400);
         await (0, auth_service_1.logoutAllService)(userId);
-        res.json({ message: "Logged out from all devices" });
+        res.json({ message: "Desconectado de todos os dispositivos com sucesso!" });
     }
     catch (error) {
         next(error);
