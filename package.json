@@ -6,7 +6,10 @@
     "test": "src/index.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev:server": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "migration:run": "ts-node src/migrations/run-migrations.ts",
+    "seed:run": "ts-node src/seeds/seed.ts"
   },
   "keywords": [],
   "author": "",
